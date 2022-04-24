@@ -1,5 +1,7 @@
 package com.example.springbootoauth.auth.domain;
 
+import com.example.springbootoauth.auth.exception.NotSupportedSocialType;
+
 import java.util.Arrays;
 
 public enum SocialType {
@@ -10,7 +12,7 @@ public enum SocialType {
         return Arrays.stream(SocialType.values())
                 .filter(socialType -> socialType.name().equalsIgnoreCase(provider))
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(NotSupportedSocialType::new);
     }
 
 }
