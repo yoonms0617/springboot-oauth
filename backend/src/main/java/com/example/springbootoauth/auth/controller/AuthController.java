@@ -40,7 +40,7 @@ public class AuthController {
                 .secure(true)
                 .httpOnly(true)
                 .path("/")
-                .maxAge(refreshToken.getExpire())
+                .maxAge(86400)
                 .domain("localhost")
                 .build().toString();
     }

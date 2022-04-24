@@ -24,7 +24,7 @@ public class KakaOAuthClient implements OAuthClient {
     @Value("${oauth.kakao.client-secret}")
     private String clientSecret;
 
-    @Value("${oauth.kakao.rediret-uri}")
+    @Value("${oauth.kakao.redirect-uri}")
     private String redirectUri;
 
     @Value("${oauth.kakao.token-uri}")
@@ -48,7 +48,7 @@ public class KakaOAuthClient implements OAuthClient {
 
     private OAuthTokenResponse getOAuthTokenResponse(String authorizationCode) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-type", "application/x-www-from-urlencoded;charset=utf-8");
+        headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
         params.add("grant_type", "authorization_code");
         params.add("client_id", clientId);

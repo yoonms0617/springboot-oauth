@@ -44,7 +44,7 @@ public class JwtProvider {
 
     public Long getIdFromPayload(String token, TokenType tokenType) {
         String secretKey = getSecretkeyFromTokenType(tokenType);
-        return Jwts.parser().setSigningKey(secretKey).parseClaimsJwt(token).getBody().get("id", Long.class);
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().get("id", Long.class);
     }
 
     private String getSecretkeyFromTokenType(TokenType tokenType) {
